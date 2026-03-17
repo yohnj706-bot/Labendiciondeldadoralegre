@@ -1,67 +1,170 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>La Bendición del Dador Alegre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helping Turbaco Foundation</title>
+
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      background: #f5f5f5;
       text-align: center;
-      background: #f4f4f4;
     }
+
     header {
-      background: #007BFF;
+      background: #0d6efd;
       color: white;
-      padding: 20px;
+      padding: 30px 20px;
     }
-    button {
-      margin: 10px;
-      padding: 10px 20px;
-      cursor: pointer;
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .lang-buttons button {
+      margin: 5px;
+      padding: 8px 15px;
       border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .donate {
       background: #28a745;
       color: white;
+      font-size: 18px;
+      padding: 12px 25px;
+      border: none;
       border-radius: 5px;
+      cursor: pointer;
     }
-    .content {
-      padding: 20px;
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
     }
+
+    .wa { background:#25D366; }
+    .mail { background:#0d6efd; }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <h1 id="title">Fundación La Bendición del Dador Alegre</h1>
-  <button onclick="setLanguage('es')">Español</button>
-  <button onclick="setLanguage('en')">English</button>
+  <h1 id="title">Helping Turbaco Foundation</h1>
+
+  <div class="lang-buttons">
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('es')">Español</button>
+  </div>
 </header>
 
-<div class="content">
-  <p id="description">
-    Estamos recaudando fondos para ayudar a niños y familias necesitadas en Turbaco, Colombia.
-  </p>
+<div class="section">
 
-  <a href="https://gofund.me/8dffb9803" target="_blank">
-    <button id="donateBtn">Donar</button>
-  </a>
+  <div class="card">
+    <p id="desc1">
+      We are a foundation dedicated to helping children and families in need in Turbaco, Colombia. Many young people are at risk of poverty, violence, and drugs.
+    </p>
+
+    <p id="desc2">
+      With your support, we provide food, education, and opportunities for a better future.
+    </p>
+
+    <a href="https://gofund.me/8dffb9803" target="_blank">
+      <button class="donate" id="donateBtn">Donate Now</button>
+    </a>
+  </div>
+
+  <div class="card">
+    <h3 id="missionTitle">Our Mission</h3>
+    <p id="missionText">
+      Our goal is to guide young people into a better future through sports, education, and support.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3 id="helpTitle">How You Can Help</h3>
+    <p id="helpText">
+      Every donation helps provide food, education, and a safe path away from drugs and violence.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Contact Us / Contáctanos</h3>
+
+    <p>Have questions or want to help directly?</p>
+
+    <a href="https://wa.me/15628896586" target="_blank">
+      <button class="btn wa">💬 WhatsApp</button>
+    </a>
+
+    <br><br>
+
+    <a href="mailto:helpingturbaco@gmail.com">
+      <button class="btn mail">📧 Email</button>
+    </a>
+  </div>
+
 </div>
 
+<!-- BOTÓN FLOTANTE -->
+<a href="https://wa.me/15628896586" target="_blank"
+style="position:fixed;bottom:20px;right:20px;
+background:#25D366;color:white;
+padding:15px 20px;
+border-radius:50px;
+font-size:18px;
+text-decoration:none;
+box-shadow:0 0 10px rgba(0,0,0,0.3);">
+💬
+</a>
+
 <script>
-function setLanguage(lang) {
+function setLang(lang) {
   if (lang === 'es') {
-    document.getElementById('title').innerText = "Fundación La Bendición del Dador Alegre";
-    document.getElementById('description').innerText = "Estamos recaudando fondos para ayudar a niños y familias necesitadas en Turbaco, Colombia.";
-    document.getElementById('donateBtn').innerText = "Donar";
+    document.getElementById('title').innerText = "Fundación Bendición del Dador Alegre";
+    document.getElementById('desc1').innerText = "Somos una fundación dedicada a ayudar a niños y familias necesitadas en Turbaco, Colombia. Muchos jóvenes están en riesgo de pobreza, violencia y drogas.";
+    document.getElementById('desc2').innerText = "Con tu apoyo, brindamos comida, educación y oportunidades para un mejor futuro.";
+    document.getElementById('donateBtn').innerText = "Donar Ahora";
+    document.getElementById('missionTitle').innerText = "Nuestra Misión";
+    document.getElementById('missionText').innerText = "Nuestro objetivo es guiar a los jóvenes hacia un mejor futuro a través del deporte, educación y apoyo.";
+    document.getElementById('helpTitle').innerText = "Cómo Puedes Ayudar";
+    document.getElementById('helpText').innerText = "Cada donación ayuda a brindar comida, educación y un camino lejos de las drogas y la violencia.";
   } else {
-    document.getElementById('title').innerText = "The Cheerful Giver's Blessing Foundation";
-    document.getElementById('description').innerText = "We are raising funds to help children and families in need in Turbaco, Colombia.";
-    document.getElementById('donateBtn').innerText = "Donate";
+    document.getElementById('title').innerText = "Helping Turbaco Foundation";
+    document.getElementById('desc1').innerText = "We are a foundation dedicated to helping children and families in need in Turbaco, Colombia. Many young people are at risk of poverty, violence, and drugs.";
+    document.getElementById('desc2').innerText = "With your support, we provide food, education, and opportunities for a better future.";
+    document.getElementById('donateBtn').innerText = "Donate Now";
+    document.getElementById('missionTitle').innerText = "Our Mission";
+    document.getElementById('missionText').innerText = "Our goal is to guide young people into a better future through sports, education, and support.";
+    document.getElementById('helpTitle').innerText = "How You Can Help";
+    document.getElementById('helpText').innerText = "Every donation helps provide food, education, and a safe path away from drugs and violence.";
   }
 }
 </script>
 
 </body>
-</html>
+      </html>
