@@ -3,160 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fundación Bendición del Dador Alegre</title>
+
+<title>Fundación La Bendición del Dador Alegre</title>
 
 <style>
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0a1f44;
   color: white;
+  text-align: center;
+  background: url("logo.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Oscurecer fondo */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
 header {
-  text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(#0a1f44, #081733);
+  animation: fadeIn 1s ease;
 }
 
 h1 {
   font-size: 34px;
-  color: #00bfff;
 }
 
-.btn {
-  background: #00bfff;
-  color: black;
-  padding: 15px 25px;
+p {
+  font-size: 18px;
+}
+
+/* Botones */
+.boton {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #00c3ff, #0072ff);
+  color: white;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: bold;
-  margin: 10px;
-  display: inline-block;
+  font-size: 18px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0,195,255,0.6);
 }
 
-.section {
+.boton:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0,195,255,1);
+}
+
+/* Barra progreso */
+.progreso {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progreso-barra {
+  height: 20px;
+  width: 25%; /* cambia esto según dinero */
+  background: #00ff99;
+}
+
+/* Secciones */
+section {
   padding: 50px 20px;
-  text-align: center;
+  animation: fadeIn 1.5s ease;
 }
 
+/* Cards */
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
 }
 
 .card {
-  background: #081733;
-  margin: 15px;
+  background: rgba(255,255,255,0.1);
   padding: 20px;
   border-radius: 15px;
-  width: 280px;
+  width: 260px;
+  backdrop-filter: blur(8px);
+  transition: 0.3s;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 10px;
+.card:hover {
+  transform: translateY(-10px);
 }
 
+/* Footer */
 footer {
-  text-align: center;
-  padding: 30px;
-  background: #081733;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-size: 20px;
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="90" style="margin-bottom:15px;">
-  <h1>Fundación Bendición del Dador Alegre</h1>
-  <p>Ayudando a niños, familias y personas necesitadas 🙏</p>
+  <h1>Fundación La Bendición del Dador Alegre</h1>
+  <p>Ayudando a niños y familias necesitadas 🙏</p>
 
-  <!-- BOTONES CONECTADOS -->
-  <a class="btn" href="https://wa.me/12132645528?text=Hola%20quiero%20donar%20a%20la%20fundación" target="_blank">💰 Donar ahora</a>
-  <a class="btn" href="https://wa.me/15628896586?text=Hola%20quiero%20apoyar%20viajando%20y%20reservar" target="_blank">🌍 Apoyar viajando</a>
+  <div class="progreso">
+    <div class="progreso-barra"></div>
+  </div>
+  <p>$125 recaudados de $500</p>
+
+  <a class="boton" href="https://gofund.me/8dffb9803" target="_blank">
+    💰 Donar ahora
+  </a>
+
+  <a class="boton" href="#">
+    🌍 Apoyar viajando
+  </a>
 </header>
 
-<div class="section">
+<section>
   <h2>Nuestra misión</h2>
   <p>
-    Somos una fundación dedicada a ayudar a personas en necesidad,
-    proporcionando alimentos, ropa y apoyo a comunidades vulnerables.
-    Nuestro objetivo es llevar esperanza y mejorar la calidad de vida
-    de quienes más lo necesitan.
+    Estamos ayudando a niños y familias en Turbaco, Colombia 🇨🇴,
+    llevando comida, educación y esperanza.
   </p>
-</div>
+</section>
 
-<div class="section">
+<section>
   <h2>¿A quién ayudamos?</h2>
 
   <div class="cards">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e">
-      <h3>Niños</h3>
-      <p>Apoyo educativo, comida y cuidado.</p>
+      <h3>👶 Niños</h3>
+      <p>Educación, cuidado y apoyo.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1606788075761-45a9a1e0f5d6">
-      <h3>Comida</h3>
-      <p>Entrega de alimentos a familias necesitadas.</p>
+      <h3>🍲 Comida</h3>
+      <p>Entrega de alimentos.</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47">
-      <h3>Ropa</h3>
-      <p>Donación de ropa para personas vulnerables.</p>
+      <h3>👕 Ropa</h3>
+      <p>Donaciones para personas vulnerables.</p>
     </div>
 
   </div>
-</div>
-
-<div class="section">
-  <h2>Cómo ayudar</h2>
-  <p>Puedes apoyar donando o usando nuestros enlaces.</p>
-
-  <a class="btn" href="https://wa.me/12132645528?text=Hola%20quiero%20donar%20a%20la%20fundación" target="_blank">💰 Donar ahora</a>
-  <a class="btn" href="https://wa.me/15628896586?text=Hola%20quiero%20reservar%20hotel" target="_blank">🏨 Reservar hotel</a>
-</div>
-
-<div class="section">
-  <h2>Impacto</h2>
-  <p>
-    Cada donación nos ayuda a llegar a más personas, brindando
-    oportunidades, alimento y esperanza a quienes lo necesitan.
-  </p>
-</div>
-
-<div class="section">
-  <h2>Contacto</h2>
-  <p>📧 yohnj706@gmail.com</p>
-  <p>📧 helpingturbaco@gmail.com</p>
-  <p>📱 WhatsApp: +1 213 264 5528</p>
-  <p>📱 WhatsApp Business: +1 562 889 6586</p>
-</div>
+</section>
 
 <footer>
-  <p>© 2026 Fundación Bendición del Dador Alegre</p>
+  <p>© 2026 Fundación La Bendición del Dador Alegre</p>
 </footer>
-
-<!-- BOTÓN FLOTANTE -->
-<a class="whatsapp" href="https://wa.me/12132645528" target="_blank">💬</a>
 
 </body>
 </html>
