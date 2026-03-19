@@ -3,155 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YonShop</title>
+<title>Fundación Bendición del Dador Alegre</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: black;
+  background: linear-gradient(#0a1f44, #0d2c5c);
   color: white;
+  text-align: center;
 }
 
-.container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+/* HEADER */
+.header {
+  padding: 50px 20px;
 }
 
-/* Cada video */
-.video-card {
-  height: 100vh;
-  position: relative;
-  scroll-snap-align: start;
+.header img {
+  width: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+h1 {
+  color: #00c3ff;
+  font-size: 26px;
 }
 
-/* Info abajo */
-.info {
-  position: absolute;
-  bottom: 20px;
-  left: 15px;
+.subtitle {
+  opacity: 0.9;
 }
 
-/* Botones derecha */
-.actions {
-  position: absolute;
-  right: 10px;
-  bottom: 80px;
+/* BOTONES */
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 18px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #00c3ff;
+  color: black;
+  font-weight: bold;
+}
+
+/* CONTADOR */
+.counter {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #00ffcc;
+}
+
+/* SECCIONES */
+.section {
+  padding: 40px 20px;
+}
+
+.cards {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.actions button {
-  background: rgba(0,0,0,0.5);
-  border: none;
+/* TARJETAS */
+.card {
+  background: #112b55;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* BOTÓN VIDEOS */
+.video-btn {
+  background: #ff004f;
   color: white;
-  padding: 10px;
-  border-radius: 50%;
-  font-size: 18px;
 }
-
-/* Botón comprar */
-.buy-btn {
-  background: red;
-  padding: 10px 15px;
-  border: none;
-  color: white;
-  margin-top: 10px;
-  font-weight: bold;
-  border-radius: 5px;
-}
-
-/* Logo arriba */
-.logo {
-  position: fixed;
-  top: 10px;
-  left: 15px;
-  font-size: 20px;
-  font-weight: bold;
-  z-index: 10;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="logo">🔥 YonShop</div>
+<!-- HEADER -->
+<div class="header">
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
 
-<div class="container" id="feed">
+  <h1>Fundación Bendición del Dador Alegre</h1>
+  <p class="subtitle">Ayudando a niños, familias y personas necesitadas 🙏</p>
 
-  <!-- VIDEO 1 -->
-  <div class="video-card">
-    <video src="video1.mp4" loop muted></video>
-
-    <div class="info">
-      <h3>🔥 Producto viral</h3>
-      <p>Lo encontré barato 😳</p>
-      <a href="TU_LINK_AFILIADO" target="_blank">
-        <button class="buy-btn">Comprar ahora</button>
-      </a>
-    </div>
-
-    <div class="actions">
-      <button onclick="like(this)">❤️</button>
-      <button onclick="share()">🔗</button>
-    </div>
+  <div class="buttons">
+    <button onclick="donar()">💰 Donar ahora</button>
+    <button onclick="viajar()">🌍 Apoyar viajando</button>
+    <a href="videos.html">
+      <button class="video-btn">🎥 Ver videos</button>
+    </a>
   </div>
 
-  <!-- VIDEO 2 -->
-  <div class="video-card">
-    <video src="video2.mp4" loop muted></video>
-
-    <div class="info">
-      <h3>💰 Oferta loca</h3>
-      <p>Vale la pena comprar</p>
-      <a href="TU_LINK_AFILIADO" target="_blank">
-        <button class="buy-btn">Ver producto</button>
-      </a>
-    </div>
-
-    <div class="actions">
-      <button onclick="like(this)">❤️</button>
-      <button onclick="share()">🔗</button>
-    </div>
+  <div class="counter">
+    👁️ Visitas: <span id="contador">0</span>
   </div>
+</div>
 
+<!-- MISIÓN -->
+<div class="section">
+  <h2>Nuestra misión</h2>
+  <p>
+    Somos una fundación dedicada a ayudar a personas en necesidad, 
+    proporcionando alimentos, ropa y apoyo a comunidades vulnerables.
+  </p>
+</div>
+
+<!-- AYUDA -->
+<div class="section">
+  <h2>¿A quién ayudamos?</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>👶 Niños</h3>
+      <p>Apoyo educativo, comida y cuidado.</p>
+    </div>
+
+    <div class="card">
+      <h3>🍲 Comida</h3>
+      <p>Entrega de alimentos a familias necesitadas.</p>
+    </div>
+
+    <div class="card">
+      <h3>👕 Ropa</h3>
+      <p>Donación de ropa para personas vulnerables.</p>
+    </div>
+
+  </div>
 </div>
 
 <script>
-// AUTO PLAY AL HACER SCROLL
-const videos = document.querySelectorAll("video");
+// CONTADOR
+let visitas = localStorage.getItem("visitas") || 0;
+visitas++;
+localStorage.setItem("visitas", visitas);
+document.getElementById("contador").innerText = visitas;
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.play();
-    } else {
-      entry.target.pause();
-    }
-  });
-}, { threshold: 0.7 });
-
-videos.forEach(video => {
-  observer.observe(video);
-});
-
-// LIKE
-function like(btn) {
-  btn.innerText = "💖";
+// BOTONES
+function donar() {
+  alert("Próximamente sistema de donación 💰");
 }
 
-// COMPARTIR
-function share() {
-  alert("Comparte esta página 🔥");
+function viajar() {
+  alert("Próximamente apoyo viajando 🌍");
 }
 </script>
 
