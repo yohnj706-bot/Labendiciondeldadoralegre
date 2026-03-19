@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YonShop Videos</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial;
+}
+
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.video-card {
+  height: 100vh;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* sombra */
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* info */
+.info {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+
+.actions {
+  position: absolute;
+  right: 10px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+}
+
+.counter {
+  font-size: 12px;
+}
+
+.buy-btn {
+  background: red;
+  padding: 10px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- VIDEO 1 -->
+  <div class="video-card">
+    <div class="overlay"></div>
+    <video src="video1.mp4" loop muted></video>
+
+    <div class="info">
+      <h3>🔥 Producto viral</h3>
+      <p>Lo encontré barato</p>
+
+      <a href="TU_LINK_AFILIADO" target="_blank">
+        <button class="buy-btn">Comprar</button>
+      </a>
+    </div>
+
+    <div class="actions">
+      <button onclick="like(this)">❤️</button>
+      <div class="counter">0</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// autoplay
+const videos = document.querySelectorAll("video");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.play();
+    } else {
+      entry.target.pause();
+    }
+  });
+}, { threshold: 0.7 });
+
+videos.forEach(video => observer.observe(video));
+
+// like
+function like(btn) {
+  let c = btn.nextElementSibling;
+  let n = parseInt(c.innerText);
+  c.innerText = n + 1;
+}
+</script>
+
+</body>
+</html>
