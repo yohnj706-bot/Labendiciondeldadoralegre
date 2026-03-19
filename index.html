@@ -2,131 +2,158 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Fundación La Bendición del Dador Alegre</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YonShop</title>
 
 <style>
-body{
-font-family: Arial;
-margin:0;
-background:#f5f7fa;
-text-align:center;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: black;
+  color: white;
 }
 
-header{
-background:#0a4ea3;
-color:white;
-padding:30px;
+.container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
 
-.logo{
-width:100px;
+/* Cada video */
+.video-card {
+  height: 100vh;
+  position: relative;
+  scroll-snap-align: start;
 }
 
-.hero{
-background:url("https://images.unsplash.com/photo-1516627145497-ae6968895b74") center/cover;
-padding:120px 20px;
-color:white;
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.section{
-background:white;
-margin:20px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+/* Info abajo */
+.info {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
 }
 
-.btn{
-display:block;
-margin:10px auto;
-padding:15px;
-width:80%;
-max-width:300px;
-border-radius:8px;
-color:white;
-text-decoration:none;
-font-size:18px;
+/* Botones derecha */
+.actions {
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.donate{background:#28a745;}
-.whatsapp{background:#25D366;}
-.facebook{background:#1877f2;}
-.call{background:#ff9800;}
-.volunteer{background:#6f42c1;}
-
-.gallery img{
-width:100%;
-margin-top:10px;
-border-radius:10px;
+.actions button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
 }
 
-footer{
-background:#222;
-color:white;
-padding:15px;
+/* Botón comprar */
+.buy-btn {
+  background: red;
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  font-weight: bold;
+  border-radius: 5px;
 }
+
+/* Logo arriba */
+.logo {
+  position: fixed;
+  top: 10px;
+  left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 10;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-<img src="logo.jpg" class="logo">
-<h1>Fundación La Bendición del Dador Alegre</h1>
-<p>Ayudando a niños en Colombia</p>
-</header>
+<div class="logo">🔥 YonShop</div>
 
-<div class="hero">
-<h2>Cambiando vidas juntos</h2>
-<p>Apoya a niños con deporte, educación y amor</p>
+<div class="container" id="feed">
 
-<a class="btn donate" href="https://gofund.me/8dffb9803">💚 Donar ahora</a>
-<a class="btn whatsapp" href="https://wa.me/?text=Apoya%20esta%20fundacion%20https://yohnj706-bot.github.io/Labendiciondeldadoralegre/">📲 Compartir por WhatsApp</a>
-</div>
+  <!-- VIDEO 1 -->
+  <div class="video-card">
+    <video src="video1.mp4" loop muted></video>
 
-<div class="section">
-<h2>Sobre Nosotros</h2>
-<p>
-Somos una fundación dedicada a ayudar niños y familias en necesidad.
-Buscamos alejarlos de las drogas y darles oportunidades con deporte y educación.
-</p>
-</div>
+    <div class="info">
+      <h3>🔥 Producto viral</h3>
+      <p>Lo encontré barato 😳</p>
+      <a href="TU_LINK_AFILIADO" target="_blank">
+        <button class="buy-btn">Comprar ahora</button>
+      </a>
+    </div>
 
-<div class="section">
-<h2>Proyecto Deportivo</h2>
-<p>
-Apoyamos jóvenes con fútbol y valores para que tengan un mejor futuro.
-</p>
-</div>
+    <div class="actions">
+      <button onclick="like(this)">❤️</button>
+      <button onclick="share()">🔗</button>
+    </div>
+  </div>
 
-<div class="section">
-<h2>Galería</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9">
-<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac">
-<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
-</div>
-</div>
+  <!-- VIDEO 2 -->
+  <div class="video-card">
+    <video src="video2.mp4" loop muted></video>
 
-<div class="section">
-<h2>Ayúdanos</h2>
+    <div class="info">
+      <h3>💰 Oferta loca</h3>
+      <p>Vale la pena comprar</p>
+      <a href="TU_LINK_AFILIADO" target="_blank">
+        <button class="buy-btn">Ver producto</button>
+      </a>
+    </div>
 
-<a class="btn donate" href="https://gofund.me/8dffb9803">💚 Donar</a>
-
-<a class="btn whatsapp" href="https://wa.me/?text=Apoya%20esta%20fundacion%20https://yohnj706-bot.github.io/Labendiciondeldadoralegre/">📲 WhatsApp</a>
-
-<a class="btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://yohnj706-bot.github.io/Labendiciondeldadoralegre/">📘 Compartir Facebook</a>
-
-<a class="btn volunteer" href="#">🙋 Quiero ser voluntario</a>
-
-<a class="btn call" href="tel:+1">📞 Contactar</a>
+    <div class="actions">
+      <button onclick="like(this)">❤️</button>
+      <button onclick="share()">🔗</button>
+    </div>
+  </div>
 
 </div>
 
-<footer>
-© 2026 Fundación La Bendición del Dador Alegre
-</footer>
+<script>
+// AUTO PLAY AL HACER SCROLL
+const videos = document.querySelectorAll("video");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.play();
+    } else {
+      entry.target.pause();
+    }
+  });
+}, { threshold: 0.7 });
+
+videos.forEach(video => {
+  observer.observe(video);
+});
+
+// LIKE
+function like(btn) {
+  btn.innerText = "💖";
+}
+
+// COMPARTIR
+function share() {
+  alert("Comparte esta página 🔥");
+}
+</script>
 
 </body>
 </html>
