@@ -9,9 +9,15 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(#0a1f44, #0d2c5c);
+  background: url("fondo.jpg") no-repeat center center/cover;
   color: white;
   text-align: center;
+}
+
+/* OSCURECER FONDO */
+.overlay {
+  background: rgba(0,0,0,0.7);
+  min-height: 100vh;
 }
 
 /* HEADER */
@@ -20,18 +26,17 @@ body {
 }
 
 .header img {
-  width: 90px;
+  width: 100px;
   border-radius: 50%;
-  margin-bottom: 10px;
+  border: 3px solid #00c3ff;
 }
 
 h1 {
   color: #00c3ff;
-  font-size: 26px;
 }
 
 .subtitle {
-  opacity: 0.9;
+  margin-top: 10px;
 }
 
 /* BOTONES */
@@ -49,75 +54,115 @@ button {
   font-weight: bold;
 }
 
+.video-btn {
+  background: #ff004f;
+  color: white;
+}
+
 /* CONTADOR */
 .counter {
   margin-top: 15px;
-  font-size: 18px;
   color: #00ffcc;
 }
 
 /* SECCIONES */
 .section {
-  padding: 40px 20px;
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  padding: 30px 20px;
 }
 
 /* TARJETAS */
 .card {
-  background: #112b55;
+  background: rgba(17,43,85,0.8);
   padding: 20px;
   border-radius: 12px;
+  margin: 10px 0;
 }
 
-/* BOTÓN VIDEOS */
-.video-btn {
-  background: #ff004f;
-  color: white;
+/* IMÁGENES */
+.story img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+<div class="overlay">
 
-  <h1>Fundación Bendición del Dador Alegre</h1>
-  <p class="subtitle">Ayudando a niños, familias y personas necesitadas 🙏</p>
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo.png">
 
-  <div class="buttons">
+    <h1>Fundación Bendición del Dador Alegre</h1>
+    <p class="subtitle">No todos tienen lo básico… pero tú puedes cambiar eso hoy 🙏</p>
+
+    <div class="buttons">
+      <button onclick="donar()">💰 Donar ahora</button>
+      <button onclick="viajar()">🌍 Apoyar viajando</button>
+
+      <a href="videos.html">
+        <button class="video-btn">🎥 Ver videos</button>
+      </a>
+    </div>
+
+    <div class="counter">
+      👁️ Visitas: <span id="contador">0</span>
+    </div>
+  </div>
+
+  <!-- MISIÓN -->
+  <div class="section">
+    <h2>Nuestra misión</h2>
+    <p>
+      Somos una fundación dedicada a ayudar a personas en necesidad, 
+      proporcionando alimentos, ropa y apoyo a comunidades vulnerables.
+    </p>
+  </div>
+
+  <!-- HISTORIA -->
+  <div class="section story">
+
+    <h2>Una realidad que muchos no ven 💔</h2>
+
+    <img src="img1.jpg">
+
+    <p>
+      Esta es la realidad de muchas familias hoy.
+      Niños que viven en condiciones difíciles, sin lo necesario
+      para una vida digna.
+    </p>
+
+    <img src="img2.jpg">
+
+    <p>
+      No siempre hay comida suficiente,
+      no siempre hay una cama en buen estado,
+      y muchas veces falta lo más básico.
+    </p>
+
+    <img src="img3.jpg">
+
+    <p>
+      Pero lo más duro no es lo que falta…
+      es que muchas veces nadie ayuda.
+    </p>
+
+    <h3>Hoy tú puedes cambiar esta historia 🙏</h3>
+
+    <p>
+      Con una pequeña donación puedes ayudar a llevar
+      alimentos, ropa y apoyo a quienes más lo necesitan.
+    </p>
+
     <button onclick="donar()">💰 Donar ahora</button>
-    <button onclick="viajar()">🌍 Apoyar viajando</button>
-    <a href="videos.html">
-      <button class="video-btn">🎥 Ver videos</button>
-    </a>
+
   </div>
 
-  <div class="counter">
-    👁️ Visitas: <span id="contador">0</span>
-  </div>
-</div>
-
-<!-- MISIÓN -->
-<div class="section">
-  <h2>Nuestra misión</h2>
-  <p>
-    Somos una fundación dedicada a ayudar a personas en necesidad, 
-    proporcionando alimentos, ropa y apoyo a comunidades vulnerables.
-  </p>
-</div>
-
-<!-- AYUDA -->
-<div class="section">
-  <h2>¿A quién ayudamos?</h2>
-
-  <div class="cards">
+  <!-- AYUDA -->
+  <div class="section">
+    <h2>¿A quién ayudamos?</h2>
 
     <div class="card">
       <h3>👶 Niños</h3>
@@ -135,6 +180,7 @@ button {
     </div>
 
   </div>
+
 </div>
 
 <script>
